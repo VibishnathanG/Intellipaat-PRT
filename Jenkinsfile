@@ -3,7 +3,7 @@
   hosts: all
   become: true
   tasks:
-    - name: Install Apache2 on EC2 instance with Apache tag
+    - name: Install Apache2 on EC2 instance with Apache tag.
       yum:
         name: httpd
         state: present
