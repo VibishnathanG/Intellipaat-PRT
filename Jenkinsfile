@@ -2,17 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository') {
+        stage('Checkout Jenkinsfile') {
             steps {
-                git  'https://github.com/VibishnathanG/Intellipaat-PRT.git'
+                git branch: 'main', credentialsId: '558deb00-7e56-4f7d-8cc5-bddac97400f2', url: 'https://github.com/VibishnathanG/Intellipaat-PRT.git'
             }
         }
 
-        stage('Run Ansible Playbook') {
+        stage('Ansible install web Application') { 
             steps {
-                script {
-                    sh 'ansible-playbook webinstall_playbook.yaml'
-                }
+                
+                sh 'ansible-playbook webinstall_playbook.yaml' 
             }
         }
     }
