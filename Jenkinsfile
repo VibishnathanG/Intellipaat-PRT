@@ -11,7 +11,7 @@ pipeline {
         stage('Ansible install web Application') { 
             steps {
                 
-                sh 'ansible-playbook webinstall_playbook.yaml' 
+                sh 'sudo ansible-playbook webinstall_playbook.yaml' 
             }
         }
     }
