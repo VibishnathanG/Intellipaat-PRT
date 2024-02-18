@@ -1,16 +1,19 @@
----
-- name: Install Apache2 and Nginx
-  hosts: all
-  become: true
-  tasks:
-    - name: Install Apache2 on EC2 instance with Apache tag.
-      yum:
-        name: httpd
-        state: present
-      when: "'apache' in group_names"
+pipeline {
+    agent any
 
-    - name: Install Nginx on EC2 instance with Nginx tag
-      yum:
-        name: nginx
-        state: present
-      when: "'nginx' in group_names"
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git  'https://github.com/VibishnathanG/Intellipaat-PRT.git'
+            }
+        }
+
+        stage('Run Ansible Playbook') {
+            steps {
+                script {
+                    sh 'ansible-playbook your-playbook.yaml'
+                }
+            }
+        }
+    }
+}
