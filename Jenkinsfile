@@ -11,7 +11,7 @@ pipeline {
         stage('Run Ansible Playbook') {
             steps {
                 script {
-                    sh 'ansible-playbook your-playbook.yaml'
+                    sh 'ansible-playbook webinstall_playbook.yaml'
                 }
             }
         }
