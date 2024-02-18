@@ -11,6 +11,6 @@
 
     - name: Install Nginx on EC2 instance with Nginx tag
       yum:
-        name: nginx
+        name: pcp-pmda-nginx.x86_64
         state: present
       when: "'nginx' in group_names"
